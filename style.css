@@ -188,6 +188,12 @@ a {
   flex-direction: column;
 }
 
+#serviceForm {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
 .bookNow {
   display: flex;
   flex-direction: column;
