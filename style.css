@@ -29,14 +29,17 @@
 .website {
   display: flex;
   background-color: #463319;
-  padding: 36px;
-  gap: 86px;
-  flex: 1;
+  padding: 50px;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
 }
 
 .website-child {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  padding: 0 70px;
   /*flex-wrap: wrap;*/
 }
 
@@ -68,7 +71,7 @@
   position: relative;
 }
 
-ul,
+.links ul,
 a {
   display: flex;
   gap: 10px;
@@ -108,7 +111,14 @@ a {
   color: #463319;
   font-size: 36px;
   font-weight: bolder;
-  padding: 40px;
+  padding: 20px;
+}
+
+.Services a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 35px;
 }
 
 .service {
@@ -151,14 +161,6 @@ a {
   color: #857b4d;
 }
 
-/*.signup {
-  display: flex;
-  /*flex-wrap: wrap;
-  gap: 98px;
-  margin: 0;
-  padding-bottom: 26px;
-}
-*/
 .action button {
   display: flex;
   background-color: #463319;
@@ -172,15 +174,35 @@ a {
   display: flex;
 }
 
-.form {
+#signup-form {
   display: flex;
   flex-direction: column;
   width: 210px;
   gap: 16px;
-  justify-content: center;
-  align-items: center;
+  /*justify-content: center;
+  align-items: center;*/
 }
 
+#login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.bookNow {
+  display: flex;
+  flex-direction: column;
+  /*flex-wrap: wrap;
+  flex: 1;*/
+  padding: 14px;
+  margin: 56px 46px;
+  border-radius: 5px;
+  background-color: #463319;
+}
+
+.bookNow2 {
+  display: flex;
+  justify-content: space-around;
+}
 .information {
   display: flex;
   flex-direction: column;
@@ -237,16 +259,13 @@ a {
 
 .Actions {
   display: flex;
-  flex-direction: column;
-  background-color: #463319;
-  padding: 14px;
-  margin: 56px 46px;
-  border-radius: 5px;
+  flex-wrap: wrap;
+  background-color: #857b4d;
   color: #eee;
+  justify-content: space-around;
 }
 
-.Actions h2,
-h3 {
+.bookNow h2 {
   display: flex;
   justify-content: center;
   align-items: center;

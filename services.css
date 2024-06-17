@@ -1,0 +1,28 @@
+* {
+  background-color: #857b4d;
+}
+
+ul,
+a {
+}
+
+img {
+  height: 350px;
+  width: 500px;
+  border-radius: 10px;
+}
+
+.item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 50px;
+  margin: 50px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0 20px;
+}
