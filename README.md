@@ -9,18 +9,18 @@ Installation Usage Endpoints
 Node.js and npm installed
 MySQL server and workbench installed
 
-#Usage
+# Usage
 User Authentication on the website's landing page. users will be able to signup, login and logout.
 for Signing up, Users need to fill up a signup form with their personal details.
 
 for booking services, theres a service form where users will select and book a service.
 
 
-#Environment Variables
+# Environment Variables
 DB_HOST: MySQL database host
 DB_USER: MySQL database usrname
 DB_PASSWORD: MySQL database
 PORT: Port in which the server will run, 3000 default.
 
-#Dependencies
+# Dependencies
 Express: A fast, minimalist web frameworkfor Nodejs. MySql a node.js driver  for MySQL bcryptjs: Library to help you hash passwords jsonwebtoken.An implementation of JSON Web Tokens body Parser:Nodejs body parsing middleware. Nodejs middleware dotenv: Loads environment from .env file into process.env
