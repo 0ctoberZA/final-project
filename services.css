@@ -1,15 +1,24 @@
 * {
   background-color: #857b4d;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 ul,
 a {
+  text-decoration: none;
+  list-style-type: none;
+  color: black;
 }
 
 img {
   height: 350px;
   width: 500px;
   border-radius: 10px;
+  transition: filter 0.5s;
+}
+
+.lazy-img {
+  filter: blur(20px);
 }
 
 .item {
@@ -25,4 +34,9 @@ img {
   flex-direction: column;
   flex: 1;
   padding: 0 20px;
+}
+
+#servicesForm {
+  display: flex;
+  flex-direction: column;
 }

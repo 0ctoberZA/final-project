@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const signupForm = document.getElementById("signup-form");
   const loginForm = document.getElementById("login-form");
   const logoutForm = document.getElementById("logout-form");
+  const serviceForm = document.getElementById("service-form");
 
   signupForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -73,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
   serviceForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(serviceForm);
-    const selectedServices = formData.getAll("service");
+    const selectedServices = formData.getAll("checkbox");
     try {
       const response = await fetch("/select-services", {
         method: "POST",
@@ -98,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function fetchSelectedServices() {
   try {
-    const response = await fetch("/selected-services");
+    const response = await fetch("/select-services");
     if (response.ok) {
       const selectedServices = await response.json();
       displaySelectedServices(selectedServices);
@@ -191,7 +192,7 @@ console.log(message.style.backgroundColor);
 
 const bookService = document.querySelector(".btn--book");
 const form = document.querySelector("#signup-form");
-
+// smooth scroll
 bookService.addEventListener("click", function (e) {
   const s1coords = form.getBoundingClientRect();
   console.log(s1coords);
@@ -222,6 +223,7 @@ document.querySelector(".link").addEventListener("click", function (e) {
 */
 const headerChild = document.querySelector(".header-child");
 
+// hover links
 const handleHover = function (e) {
   if (e.target.classList.contains("link")) {
     const link = e.target;
@@ -237,3 +239,30 @@ const handleHover = function (e) {
 
 headerChild.addEventListener("mouseover", handleHover.bind(0.5));
 headerChild.addEventListener("mouseout", handleHover.bind(1));
+
+//  reveal and lazy images load
+
+const imgTargets = document.querySelectorAll("img[data-src]");
+
+const loadImg = function (entries, observer) {
+  const [entry] = entries;
+  console.log(entry);
+  if (!entry.isIntersecting) return;
+
+  // replace src with data-src
+  entry.target.src = entry.target.dataset.src;
+
+  entry.target.addEventListener("load", function () {
+    entry.target.classList.remove("lazy-img");
+  });
+
+  observer.unobserve(entry.target);
+};
+
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold: 0,
+  rootMargin: "200px",
+});
+
+imgTargets.forEach((img) => imgObserver.observe(img));

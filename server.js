@@ -177,25 +177,24 @@ app.post("/logout", (req, res) => {
 });
 
 // Service selection route
-app.post("/select-services", (req, res) => {
+app.post("/services", (req, res) => {
   const { selectedServices } = req.body;
   const clientId = req.session.user.id;
-});
 
-// insert selected services into database
-const sql = "INSERT INTO services (clients_Id, services_Id) VALUES ? ";
-const values = selectedServices.map((servicesId) => [clientsId, servicesId]);
-connection.query(sql, [values], (err, result) => {
-  if (err) {
-    console.error("Error inserting selected services:", err);
-    res.status(500).send("Failed to select services");
-  } else {
-    res.status(200).send("Services selected successfully");
-  }
+  // insert selected services into database
+  const sql = "INSERT INTO services (clients_Id, services_Id) VALUES ? ";
+  const values = selectedServices.map((servicesId) => [clientsId, servicesId]);
+  connection.query(sql, [values], (err, result) => {
+    if (err) {
+      console.error("Error inserting selected services:", err);
+      res.status(500).send("Failed to select services");
+    } else {
+      res.status(200).send("Services selected successfully");
+    }
+  });
 });
-
 // fetch selected service
-app.get("/selected-services", (req, res) => {
+app.get("/services", (req, res) => {
   const clientsId = req.session.user.id;
 
   const sql =

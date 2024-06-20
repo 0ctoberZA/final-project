@@ -197,10 +197,10 @@ a {
   flex-direction: column;
 }
 
-#serviceForm {
+#service-Form {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 0 30px;
 }
 
 .bookNow {
@@ -254,8 +254,8 @@ a {
   border: 1px solid #857b4d;
   border-radius: 8px;
   padding: 10px;
-  height: 120px;
-  width: 220px;
+  height: 150px;
+  width: 230px;
   gap: 15px;
   background-color: #d2bf6b;
 }
