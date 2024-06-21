@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
   serviceForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(serviceForm);
-    const selectedServices = formData.getAll("checkbox");
+    const selectedServices = formData.getAll("name");
     try {
       const response = await fetch("/select-services", {
         method: "POST",
@@ -192,6 +192,7 @@ console.log(message.style.backgroundColor);
 
 const bookService = document.querySelector(".btn--book");
 const form = document.querySelector("#signup-form");
+
 // smooth scroll
 bookService.addEventListener("click", function (e) {
   const s1coords = form.getBoundingClientRect();
@@ -208,19 +209,6 @@ document.querySelectorAll(".link").forEach(function (el) {
   });
 });
 
-// Service order form submission
-
-/*
-document.querySelector(".link").addEventListener("click", function (e) {
-  console.log(e.target);
-
-  if (e.target.classList.contains("links")) {
-    const id = e.target.getAttribute("href");
-    console.log(id);
-    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
-  }
-});
-*/
 const headerChild = document.querySelector(".header-child");
 
 // hover links

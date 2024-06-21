@@ -3,6 +3,7 @@ const session = require("express-session");
 const bcrypt = require("bcryptjs");
 const bodyParser = require("body-parser");
 const mysql = require("mysql");
+const http = require("http");
 const { check, validationResult } = require("express-validator");
 const dotenv = require("dotenv");
 
@@ -177,13 +178,13 @@ app.post("/logout", (req, res) => {
 });
 
 // Service selection route
-app.post("/services", (req, res) => {
-  const { selectedServices } = req.body;
+app.post("/select-service", (req, res) => {
+  const { selectedServices } = req.body.selectedServices;
   const clientId = req.session.user.id;
 
   // insert selected services into database
-  const sql = "INSERT INTO services (clients_Id, services_Id) VALUES ? ";
-  const values = selectedServices.map((servicesId) => [clientsId, servicesId]);
+  const sql = "INSERT INTO services (client_Id, services_Id) VALUES ? ";
+  const values = selectedServices.map((servicesId) => [clientId, servicesId]);
   connection.query(sql, [values], (err, result) => {
     if (err) {
       console.error("Error inserting selected services:", err);
@@ -193,10 +194,17 @@ app.post("/services", (req, res) => {
     }
   });
 });
-// fetch selected service
-app.get("/services", (req, res) => {
-  const clientsId = req.session.user.id;
 
+selectedServices[
+  ({ name: "DeepClean" }, { name: WindowsClean }, { name: BasicClean })
+];
+
+// fetch selected service for current user
+app.get("/select-service", (req, res) => {
+  const clientsId = req.session.user.id;
+  res.json(selectedServices);
+
+  // fetch selected services into database
   const sql =
     " SELECT * FROM services INNER JOIN user_services ON services.id = user_services.services_id WHERE user_services.user_id = ? ";
   connection.query(sql, [clientsId], (err, results) => {
