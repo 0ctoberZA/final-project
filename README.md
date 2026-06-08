@@ -1,4 +1,4 @@
-# final-project
+# Lindz Refresh cleaning service
 A cleaning company website! Linds Refresh services is a cleaning company that offers services general, daily cleaning services so people can have more free time to do other important things. Users can register for daily cleaning tips and company's newsletter. This website was built with front-end stack Html, CSS, and Javascript and backend powered by Node.js and MySQL. 
 
 # Table of contents
